@@ -1,0 +1,311 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    color: white;
+    background-color: #000;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+.home {
+    background-image: url('/static/images/rb_2150542620.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Certifique-se de preencher a tela em dispositivos menores */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logo{
+    max-width: 50%;
+}
+
+.logo img {
+    border-radius: 40px;
+    margin-left: 65%;
+    margin-top: 8%;
+}
+
+.homepagetitle {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  /* Estilo do h1 com a fonte Cinzel */
+  .homepagetitle h1 {
+    font-size: 2rem;
+    font-family: 'Courier New', Courier, monospace; /* Fonte rebuscada */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    text-transform: uppercase;
+    color: #fff;
+    transition: color 0.3s ease;
+  }
+  
+  /* Estilo das palavras individualmente */
+  .homepagetitle .word {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    background: linear-gradient(45deg, #11ff00, #ff0000, #3700ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .blinking-cursor {
+    display: inline-block;
+    width: 1ch; /* Espaço do cursor */
+    background-color: transparent;
+    animation: blink 0.8s step-start infinite;
+    color: #fff; /* Cor do cursor */
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Mudança de cor ao passar o mouse */
+.homepagetitle h1:hover .word {
+    transform: scale(1.1) rotate(-5deg);
+    color: #ff0;
+}
+
+.homepagetitle h1:hover .word:nth-child(1) {
+    color: #ff00ae;
+}
+
+.homepagetitle h1:hover .word:nth-child(2) {
+    color: #c3ff00;
+}
+
+.homepagetitle h1:hover .word:nth-child(3) {
+    color: #50d9ff;
+}
+
+/* Animação das palavras */
+.homepagetitle .word {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 1.5s forwards;
+    font-size: 5rem; /* Tamanho base */
+    position: relative; /* Necessário para efeitos ::before */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Delay de animação para palavras diferentes */
+.homepagetitle .word:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.homepagetitle .word:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.homepagetitle .word:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* Efeito de sombra para as palavras */
+.homepagetitle .word::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    color: #000;
+    filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.homepagetitle .word:hover::before {
+    filter: blur(20px);
+    transform: translate(5px, 5px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .blinking-cursor {
+        width: 0.8ch; /* Ajusta tamanho do cursor para telas menores */
+    }
+
+    .homepagetitle .word {
+        font-size: 2.5rem; /* Reduz tamanho das palavras */
+    }
+}
+
+@media (max-width: 480px) {
+    .homepagetitle h1 {
+        font-size: 1.8rem; /* Ajusta tamanho do título para telas pequenas */
+        text-align: center; /* Centraliza texto em dispositivos menores */
+    }
+
+    .homepagetitle .word {
+        font-size: 2rem; /* Reduz ainda mais o tamanho das palavras */
+        animation: fadeIn 1s forwards; /* Animação mais rápida para evitar lentidão */
+    }
+
+    .blinking-cursor {
+        width: 0.5ch; /* Cursor menor em dispositivos pequenos */
+    }
+}
+
+.formulario {
+    background-color: #50d9ff;
+    max-width: 50%;
+    margin-left: 25%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.formulario {
+    max-width: 700px;
+    margin: 20px auto;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+}
+
+.formulario h2 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.formulario label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.formulario input[type="text"],
+.formulario input[type="date"],
+.formulario input[type="number"],
+.formulario input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.radio-group, 
+.checkbox-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.radio-group label,
+.checkbox-group label {
+    margin-left: 5px;
+}
+
+.formulario input[type="radio"],
+.formulario input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+@media (max-width: 600px) {
+    .formulario {
+        padding: 20px;
+    }
+
+    .formulario h2 {
+        font-size: 18px;
+    }
+
+    .formulario input[type="text"],
+    .formulario input[type="date"],
+    .formulario input[type="number"],
+    .formulario input[type="time"] {
+        font-size: 14px;
+    }
+}
+
+.obs {
+    color: #ff0000;
+    font-weight: 900;
+}
+
+/* Estilo básico para o botão */
+.botaosalvar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+/* Efeito de hover */
+button:hover {
+    background-color: #45a049;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Efeito de foco */
+button:focus {
+    outline: none;
+    border: 2px solid #45a049;
+}
+
+/* Animação de clique */
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Adicionando uma animação inicial ao carregar */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+button {
+    animation: fadeIn 1s ease-out;
+}
+

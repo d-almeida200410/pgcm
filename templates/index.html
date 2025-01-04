@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Rever e Aprender</title>
+</head>
+<body>
+    <div class="home">
+        <div class="logo">
+            <img src="/static/images/Rever E Aprender (1).png" alt="">
+        </div>
+        <div class="homepagetitle">
+            <h1>
+                <span class="word">Contrato</span>
+                <span class="word">De</span>
+                <span class="word">Matrícula</span>
+            </h1>
+        </div>
+        <form action="/salvar" method="POST">
+            <div class="formulario">
+                <div class="identificacao_aluno">
+                    <h2>Identificação Aluno</h2>
+                    <label for="nomealuno">Nome do aluno(a):</label>
+                    <input type="text" id="nomealuno" name="nomealuno">
+        
+                    <label for="datanasc">Data de Nascimento:</label>
+                    <input type="date" id="datanasc" name="datanasc">
+        
+                    <label>Sexo:</label>
+                    <div class="radio-group">
+                        <input type="radio" name="genero" value="masculino" id="masculino">
+                        <label for="masculino">Masculino</label>
+                        <input type="radio" name="genero" value="feminino" id="feminino">
+                        <label for="feminino">Feminino</label>
+                    </div>
+        
+                    <label for="idade">Idade:</label>
+                    <input type="number" id="idade" name="idade">
+        
+                    <label for="escola">Escola:</label>
+                    <input type="text" id="escola" name="escola">
+        
+                    <label for="serie">Série:</label>
+                    <input type="text" id="serie" name="serie">
+        
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" id="endereco" name="endereco">
+        
+                    <label for="bairro">Bairro:</label>
+                    <input type="text" id="bairro" name="bairro">
+                </div>
+        
+                <div class="identificacao_responsavel">
+                    <h2>Identificação Responsável</h2>
+                    <label for="nomeresp">Nome do responsável:</label>
+                    <input type="text" id="nomeresp" name="nomeresp">
+        
+                    <label for="ocupacao">Ocupação:</label>
+                    <input type="text" id="ocupacao" name="ocupacao">
+        
+                    <label for="contato">Contato:</label>
+                    <input type="number" id="contato" name="contato">
+                </div>
+        
+                <div class="informacoes_reforco" id="informacoes_reforco">
+                    <h2>Informações do Reforço</h2>
+                    
+                    <!-- Seleção de dias -->
+                    <label for="dias">Dias de aula:</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" name="dias" value="segunda" id="segunda">
+                        <label for="segunda">Segunda</label>
+                        <input type="checkbox" name="dias" value="terca" id="terca">
+                        <label for="terca">Terça</label>
+                        <input type="checkbox" name="dias" value="quarta" id="quarta">
+                        <label for="quarta">Quarta</label>
+                        <input type="checkbox" name="dias" value="quinta" id="quinta">
+                        <label for="quinta">Quinta</label>
+                    </div>
+                
+                    <!-- Seleção de horários -->
+                    <label for="hora">Horário de aula:</label>
+                    <div class="time-group">
+                        <label for="hora">Entrada:</label>
+                        <input type="time" id="hora" name="hora">
+                        
+                        <label for="hora_final">Saída:</label>
+                        <input type="time" id="hora_final" name="hora_final">
+                    </div>
+                </div>
+        
+                <div class="mensalidade">
+                    <h2>Mensalidade</h2>
+                    <label for="mensalidade">A mensalidade estabelecida inicialmente se mantém fixa de:</label>
+                    <input type="date" id="mensalidade" name="mensalidade">
+                    <label for="data_inicio">até:</label>
+                    <input type="date" id="data_inicio" name="data_inicio">
+                </div>
+        
+                <div class="vencimento">
+                    <h2>Data de vencimento</h2>
+                    <p>As mensalidades devem ser pagas até a data combinada e agendada previamente.</p>
+                </div>
+        
+                <div class="feriados">
+                    <h2>Feriados</h2>
+                    <p>Seguimos os mesmos feriados escolares.</p>
+                </div>
+        
+                <div class="recesso">
+                    <h2>Período de Recesso</h2>
+                    <p>Mês de julho: Atendimento somente pelo período da manhã.</p>
+                    <p>Mês de Dezembro: Atendimento até o dia 20 do mês, caso o aluno necessite de apoio para as avaliações finais seguimos os atendimentos nesse período.</p>
+                </div>
+        
+                <div class="obs">
+                    <p>Obs: Atividades interdisciplinares, não se encaixam como reforço escolar! (Caso esse serviço seja solicitado será cobrado valor fora parte).</p>
+                    <p>Obs: Autorização da imagem permitida para divulgar a imagem do meu filho nas redes sociais do reforço escolar.</p>
+                </div>
+        
+                <div class="assinaturas">
+                    <p>Contratante: _________________________________________<br>
+                    </p>
+                    <label style="color: #4CAF50;" for="data_assinatura">Data da Assinatura:</label>
+                    <input type="date" id="data_assinatura" name="data_assinatura">
+                </div>
+        
+                <div class="botaosalvar">
+                    <button type="submit">Salvar e Gerar PDF</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.querySelector("form").addEventListener("submit", function (event) {
+            const requiredFields = [
+                "nomealuno",
+                "datanasc",
+                "idade",
+                "escola",
+                "serie",
+                "endereco",
+                "bairro",
+                "nomeresp",
+                "ocupacao",
+                "contato",
+                "hora",
+                "hora_final",
+                "mensalidade",
+                "data_inicio",
+                "data_assinatura"
+            ];
+    
+            let isValid = true;
+    
+            // Validação de campos obrigatórios
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.style.border = "2px solid red"; // Adiciona destaque ao campo inválido
+                } else {
+                    field.style.border = ""; // Remove o destaque se o campo for válido
+                }
+            });
+    
+            // Validação de número de contato
+            const contatoField = document.getElementById("contato");
+            const contatoValue = contatoField.value.trim();
+            if (contatoValue.length < 10 || contatoValue.length > 11) {
+                isValid = false;
+                contatoField.style.border = "2px solid red";
+                alert("O número de contato deve conter 10 ou 11 dígitos (incluindo DDD).");
+            } else {
+                contatoField.style.border = "";
+            }
+    
+            // Validação de horários
+            const horaEntrada = document.getElementById("hora").value;
+            const horaSaida = document.getElementById("hora_final").value;
+    
+            if (horaEntrada === horaSaida) {
+                isValid = false;
+                alert("O horário de entrada deve ser diferente do horário de saída.");
+                document.getElementById("hora").style.border = "2px solid red";
+                document.getElementById("hora_final").style.border = "2px solid red";
+            } else {
+                document.getElementById("hora").style.border = "";
+                document.getElementById("hora_final").style.border = "";
+            }
+    
+            if (!isValid) {
+                event.preventDefault(); // Impede o envio do formulário
+            }
+        });
+    </script>
+    
+</body>
+</html>
